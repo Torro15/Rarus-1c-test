@@ -26,6 +26,27 @@ $bg-grey: #f4f4f4;
     gap: 10px;
 }
 
+@mixin input {
+        width: 523px;
+        height: 46px;
+        border: 2px solid #ddd;
+        border-radius: 100px;
+        padding-left: 50px;
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 16px;
+        color: $grey;
+        
+
+        @include respond-to(tablet) {
+            width: 299px;
+        }
+
+        @include respond-to(mobile) {
+            width: calc(100% - 39px);
+        }
+    }
+
 @mixin respond-to($device) {
     @if $device == mobile {
         @media (max-width: 767px) {
@@ -176,12 +197,10 @@ a {
 .nav {
     min-height: 142px;
     padding-top: 8px;
-    margin-bottom: 36px;
+    margin-bottom: 26px;
     font-size: 16px;
     color: $text-color;
-    @include respond-to(tablet) {
-        margin-bottom: 26px;
-    }
+   
 
     &__menu {
         &_desktop {
@@ -209,7 +228,7 @@ a {
 
     &__navigation {
         @include flex-item;
-        margin-bottom: 12px;
+        margin-bottom: 1px;
         gap: 25px;
         position: relative;
 
@@ -237,23 +256,7 @@ a {
     }
 }
 
-.search-icon {
-    width: 26px;
-    height: 26px;
-    position: absolute;
-    left: 256px;
 
-    @include respond-to(tablet) {
-        left: 220px;
-    }
-
-    @include respond-to(mobile) {
-        width: 18px;
-        height: 18px;
-        position: absolute;
-        left: 70px;
-    }
-}
 
 .top-left {
     @include flex-item;
@@ -317,22 +320,28 @@ a {
     }
 }
 
-input {
-    width: 545px;
-    height: 46px;
-    border: 2px solid #ddd;
-    border-radius: 100px;
-    padding-left: 50px;
-    font-family: $font-family;
-    font-weight: 400;
-    font-size: 16px;
-    color: $grey;
-    @include respond-to(tablet) {
-        width: 299px;
-    }
+.form-navigation {
+    display: flex;
+    align-items: center;
+    position: relative;
+       & input {
+        @include input;
+       }
+
+
+}
+
+.search-icon {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 14px;
 
     @include respond-to(mobile) {
-        width: calc(100% - 39px);
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        left: 70px;
     }
 }
 
@@ -394,6 +403,10 @@ input {
     &-navigation {
         @include flex;
         margin-bottom: 18px;
+
+        & input {
+            @include input;
+        }
     }
 }
 
@@ -429,7 +442,7 @@ main {
 
 .discount {
     min-height: 677px;
-    padding-bottom: 126px;
+    padding-bottom: 97px;
 
     @include respond-to(mobile) {
         padding-bottom: 90px;
@@ -439,7 +452,7 @@ main {
         font-weight: 700;
         font-size: 36px;
         color: $text-color;
-        margin-bottom: 6px;
+        margin-bottom: 35px;
 
         @include respond-to(mobile) {
             font-size: 24px;

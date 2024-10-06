@@ -134,14 +134,9 @@ a {
 .nav {
   min-height: 142px;
   padding-top: 8px;
-  margin-bottom: 36px;
+  margin-bottom: 26px;
   font-size: 16px;
   color: #333;
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  .nav {
-    margin-bottom: 26px;
-  }
 }
 @media (max-width: 767px) {
   .nav__menu_desktop {
@@ -171,7 +166,7 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 6px;
-  margin-bottom: 12px;
+  margin-bottom: 1px;
   gap: 25px;
   position: relative;
 }
@@ -196,26 +191,6 @@ a {
 .nav__list {
   position: relative;
   transition: transform 0.3s ease;
-}
-
-.search-icon {
-  width: 26px;
-  height: 26px;
-  position: absolute;
-  left: 256px;
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  .search-icon {
-    left: 220px;
-  }
-}
-@media (max-width: 767px) {
-  .search-icon {
-    width: 18px;
-    height: 18px;
-    position: absolute;
-    left: 70px;
-  }
 }
 
 .top-left {
@@ -294,8 +269,13 @@ a {
   }
 }
 
-input {
-  width: 545px;
+.form-navigation {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.form-navigation input {
+  width: 523px;
   height: 46px;
   border: 2px solid #ddd;
   border-radius: 100px;
@@ -306,13 +286,28 @@ input {
   color: #8d8d8d;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
-  input {
+  .form-navigation input {
     width: 299px;
   }
 }
 @media (max-width: 767px) {
-  input {
+  .form-navigation input {
     width: calc(100% - 39px);
+  }
+}
+
+.search-icon {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  left: 14px;
+}
+@media (max-width: 767px) {
+  .search-icon {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 70px;
   }
 }
 
@@ -383,6 +378,27 @@ input {
   align-items: center;
   margin-bottom: 18px;
 }
+.mobile-navigation input {
+  width: 523px;
+  height: 46px;
+  border: 2px solid #ddd;
+  border-radius: 100px;
+  padding-left: 50px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #8d8d8d;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .mobile-navigation input {
+    width: 299px;
+  }
+}
+@media (max-width: 767px) {
+  .mobile-navigation input {
+    width: calc(100% - 39px);
+  }
+}
 
 .burger {
   width: 24px;
@@ -416,7 +432,7 @@ main {
 
 .discount {
   min-height: 677px;
-  padding-bottom: 126px;
+  padding-bottom: 97px;
 }
 @media (max-width: 767px) {
   .discount {
@@ -427,7 +443,7 @@ main {
   font-weight: 700;
   font-size: 36px;
   color: #333;
-  margin-bottom: 6px;
+  margin-bottom: 35px;
 }
 @media (max-width: 767px) {
   .discount__title {
