@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   box-sizing: border-box;
 }
@@ -322,6 +323,9 @@ input {
   gap: 36px;
   list-style: none;
   overflow-x: auto;
+  box-sizing: content-box;
+  -ms-overflow-style: none; /* Internet Explorer и Edge */
+  scrollbar-width: none; /* Firefox */
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .menu-list {
@@ -340,6 +344,9 @@ input {
   align-items: center;
   gap: 6px;
   color: #e11c4b;
+}
+.menu-list::-webkit-scrollbar {
+  display: none; /* Скрываем скролл для WebKit-браузеров */
 }
 
 .btn-navigation {
@@ -468,8 +475,6 @@ main {
 }
 .discount__box img {
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
   border-radius: 10px;
 }
 
