@@ -324,12 +324,13 @@ input {
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .menu-list {
-    overflow: scroll;
+    overflow: auto;
   }
 }
 @media (max-width: 767px) {
   .menu-list {
     gap: 18px;
+    overflow: scroll;
   }
 }
 .menu-list_active {

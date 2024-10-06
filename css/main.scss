@@ -343,12 +343,12 @@ input {
    
 
     @include respond-to(tablet) {
-        overflow: scroll;
+        overflow: auto;
     }
 
     @include respond-to(mobile) {
         gap: 18px;
-       
+        overflow: scroll;
     }
 
     &_active {
