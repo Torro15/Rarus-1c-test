@@ -491,6 +491,8 @@ main {
 .discount__box img {
   height: 100%;
   border-radius: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .footer {
