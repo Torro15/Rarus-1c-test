@@ -340,14 +340,15 @@ input {
     @include flex;
     gap: 36px;
     list-style: none;
+    overflow-x: scroll;
 
     @include respond-to(tablet) {
-        overflow: hidden;
+        overflow: scroll;
     }
 
     @include respond-to(mobile) {
         gap: 18px;
-        overflow: hidden;
+       
     }
 
     &_active {
