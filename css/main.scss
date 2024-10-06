@@ -1,0 +1,586 @@
+$font-family: "Roboto", sans-serif;
+$second-family: "Rosario", sans-serif;
+$bg: #fff;
+$text-color: #333;
+$accent: #e11c4b;
+$grey: #8d8d8d;
+$bg-grey: #f4f4f4;
+
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+}
+
+@mixin flex-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+@mixin respond-to($device) {
+    @if $device == mobile {
+        @media (max-width: 767px) {
+            // для мобильных устройств
+            @content;
+        }
+    } @else if $device == tablet {
+        @media (min-width: 768px) and (max-width: 1024px) {
+            // для планшетов
+            @content;
+        }
+    }
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: $bg;
+    font-family: $font-family;
+    color: $text-color;
+    font-weight: 400;
+    scroll-behavior: smooth;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: $text-color;
+    cursor: pointer;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+
+    @include respond-to(tablet) {
+        padding: 0 20px;
+    }
+
+    @include respond-to(mobile) {
+        padding: 0 10px;
+    }
+}
+
+.sidenav {
+    display: none;
+
+    @include respond-to(mobile) {
+        display: block;
+        background-color: $bg;
+        position: relative;
+        padding: 18px 10px;
+        width: 320px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -320px;
+        transition: right 0.3s ease;
+        z-index: 999;
+    }
+
+    &-close {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 10px;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 24px;
+        margin-top: 24px;
+        margin-bottom: 18px;
+    }
+
+    &__menu {
+        list-style: none;
+
+        & li {
+            height: 32px;
+            border-bottom: 2px solid #e8e8e8;
+            @include flex;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            font-family: $font-family;
+            font-weight: 400;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        & li:last-child {
+            border-bottom: 0;
+        }
+
+        &-left {
+            @include flex-item;
+        }
+    }
+
+    &-img {
+        width: 32px;
+        height: 32px;
+    }
+
+    &-arrow {
+        width: 8px;
+        height: 16px;
+    }
+
+    &.open {
+        right: 0;
+    }
+}
+
+.nav {
+    min-height: 142px;
+    padding-top: 8px;
+    margin-bottom: 36px;
+    font-size: 16px;
+    color: $text-color;
+    @include respond-to(tablet) {
+        margin-bottom: 26px;
+    }
+
+    &__menu {
+        &_desktop {
+            @include respond-to(mobile) {
+                display: none;
+            }
+        }
+        &_mobile {
+            display: none;
+
+            @include respond-to(mobile) {
+                display: block;
+                height: 144px;
+                margin-bottom: 24px;
+            }
+        }
+    }
+
+    &__top {
+        height: 37px;
+        margin-bottom: 8px;
+        @include flex;
+        border-bottom: 2px solid #e8e8e8;
+    }
+
+    &__navigation {
+        @include flex-item;
+        margin-bottom: 12px;
+        gap: 25px;
+        position: relative;
+
+        @include respond-to(tablet) {
+            gap: 12px;
+            margin-bottom: 2px;
+        }
+    }
+
+    &__logo {
+        @include respond-to(tablet) {
+            width: 190px;
+            height: 59px;
+        }
+
+        @include respond-to(mobile) {
+            width: 180;
+            height: 56px;
+        }
+    }
+
+    &__list {
+        position: relative;
+        transition: transform 0.3s ease;
+    }
+}
+
+.search-icon {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 256px;
+
+    @include respond-to(tablet) {
+        left: 220px;
+    }
+
+    @include respond-to(mobile) {
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        left: 70px;
+    }
+}
+
+.top-left {
+    @include flex-item;
+    gap: 36px;
+
+    &__address {
+        width: auto;
+        @include flex-item;
+        & img {
+            width: 18px;
+            height: 18px;
+        }
+    }
+    &__stores {
+        width: auto;
+        @include flex-item;
+        & img {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+
+.top-right {
+    @include flex-item;
+    gap: 6px;
+}
+
+.personal-navigation {
+    @include flex-item;
+    gap: 24px;
+
+    @include respond-to(tablet) {
+        gap: 35px;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        & a {
+            display: block;
+            & img {
+                margin: 0 auto;
+                width: 18px;
+                height: 18px;
+
+                @include respond-to(tablet) {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+    }
+}
+
+.hidden-text {
+    @include respond-to(tablet) {
+        display: none;
+    }
+}
+
+input {
+    width: 545px;
+    height: 46px;
+    border: 2px solid #ddd;
+    border-radius: 100px;
+    padding-left: 50px;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 16px;
+    color: $grey;
+    @include respond-to(tablet) {
+        width: 299px;
+    }
+
+    @include respond-to(mobile) {
+        width: calc(100% - 39px);
+    }
+}
+
+.menu-list {
+    @include flex;
+    gap: 36px;
+    list-style: none;
+
+    @include respond-to(tablet) {
+        overflow: hidden;
+    }
+
+    @include respond-to(mobile) {
+        gap: 18px;
+        overflow: hidden;
+    }
+
+    &_active {
+        @include flex-item;
+        color: $accent;
+    }
+}
+
+.btn-navigation {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: -6px;
+    top: 0;
+
+    @include respond-to(tablet) {
+        display: none;
+    }
+}
+
+.mobile {
+    &-top {
+        @include flex;
+
+        &__icons {
+            @include flex;
+            gap: 24px;
+
+            & img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+
+    &-navigation {
+        @include flex;
+        margin-bottom: 18px;
+    }
+}
+
+.burger {
+    width: 24px;
+    height: 20px;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.burger__line {
+    display: block;
+    width: 24px;
+    height: 2.17px;
+    background-color: $grey;
+    margin-bottom: 8px;
+}
+
+.burger__line:last-child {
+    margin-bottom: 0;
+}
+
+main {
+    flex: 1;
+}
+
+.discount {
+    min-height: 677px;
+    padding-bottom: 126px;
+
+    @include respond-to(mobile) {
+        padding-bottom: 90px;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 36px;
+        color: $text-color;
+        margin-bottom: 6px;
+
+        @include respond-to(mobile) {
+            font-size: 24px;
+        }
+    }
+
+    &__box {
+        width: 100%;
+        min-height: 677px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 34px;
+
+        @include respond-to(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 11px;
+            row-gap: 15px;
+        }
+
+        @include respond-to(mobile) {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 18px;
+        }
+
+        &-item {
+            width: 361px;
+            height: 203px;
+
+            @include respond-to(mobile) {
+                width: 100%;
+                height: 169px;
+            }
+        }
+
+        & img {
+            height: 133%;
+            object-fit: cover;
+        }
+    }
+}
+
+.footer {
+    min-height: 151px;
+    padding: 36px 0 28px 0;
+    background-color: $bg-grey;
+
+    @include respond-to(tablet) {
+        padding-bottom: 18px;
+        position: relative;
+    }
+
+    @include respond-to(tablet) {
+        padding-bottom: 24px;
+    }
+
+    &__top {
+        @include flex;
+        margin-bottom: 35px;
+
+        @include respond-to(tablet) {
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        @include respond-to(mobile) {
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-bottom: 12px;
+        }
+    }
+
+    &-menu {
+        display: flex;
+        gap: 62px;
+        list-style: none;
+        & a {
+            font-weight: 400;
+            font-size: 16px;
+
+            @include respond-to(mobile) {
+                font-size: 14px;
+            }
+        }
+
+        @include respond-to(tablet) {
+            gap: 36px;
+        }
+
+        @include respond-to(mobile) {
+            gap: 25px;
+        }
+    }
+
+    &-right {
+        @include flex;
+        gap: 62px;
+
+        @include respond-to(mobile) {
+            flex-wrap: wrap;
+            gap: 19px;
+        }
+
+        &__phone {
+            @include flex-footer;
+            & img {
+                width: 19px;
+            }
+        }
+
+        &__mail {
+            @include flex-footer;
+            & img {
+                width: 25px;
+                height: 18px;
+            }
+        }
+    }
+
+    &__bottom {
+        @include flex;
+
+        @include respond-to(mobile) {
+            flex-direction: column-reverse;
+            align-items: start;
+            gap: 24px;
+        }
+
+        &-copyright {
+            & p {
+                font-size: 14px;
+                line-height: 143%;
+                color: $grey;
+
+                @include respond-to(mobile) {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        &-links {
+            @include flex;
+            gap: 12px;
+
+            @include respond-to(tablet) {
+                position: absolute;
+                top: 40px;
+                right: 20px;
+            }
+        }
+    }
+}
