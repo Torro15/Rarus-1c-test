@@ -343,7 +343,7 @@ input {
    
 
     @include respond-to(tablet) {
-        overflow: auto;
+        overflow-x: auto;
     }
 
     @include respond-to(mobile) {

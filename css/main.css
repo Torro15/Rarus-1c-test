@@ -324,7 +324,7 @@ input {
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .menu-list {
-    overflow: auto;
+    overflow-x: auto;
   }
 }
 @media (max-width: 767px) {
