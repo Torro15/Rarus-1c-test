@@ -340,7 +340,7 @@ input {
     @include flex;
     gap: 36px;
     list-style: none;
-    overflow-x: scroll;
+   
 
     @include respond-to(tablet) {
         overflow: scroll;
@@ -460,6 +460,8 @@ main {
         &-item {
             width: 361px;
             height: 203px;
+            border-radius: 10px;
+            box-shadow: 0 6px 30px 4px rgba(32, 32, 32, 0.1);
 
             @include respond-to(mobile) {
                 width: 100%;
@@ -468,7 +470,7 @@ main {
         }
 
         & img {
-            height: 133%;
+            height: 100%;
             object-fit: cover;
         }
     }
