@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 const scrollButton = document.getElementById('scrollButton');
-const scrollContent = document.querySelector('.menu');
+const scrollContent = document.querySelector('.menu-list');
 
 let scrollAmount = 0; // Сумма скролла
 const scrollStep = 50; // Шаг скролла
