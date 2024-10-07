@@ -1,0 +1,58 @@
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+}
+
+@mixin flex-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+@mixin input {
+    width: 523px;
+    height: 46px;
+    border: 2px solid #ddd;
+    border-radius: 100px;
+    padding-left: 50px;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 16px;
+    color: $grey;
+
+    @include respond-to(tablet) {
+        width: 299px;
+    }
+
+    @include respond-to(mobile) {
+        width: calc(100% - 39px);
+    }
+}
+
+@mixin scroll {
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+
+@mixin respond-to($device) {
+    @if $device == mobile {
+        @media (max-width: 767px) {
+            // для мобильных устройств
+            @content;
+        }
+    } @else if $device == tablet {
+        @media (min-width: 768px) and (max-width: 1024px) {
+            // для планшетов
+            @content;
+        }
+    }
+}
