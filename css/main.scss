@@ -252,8 +252,9 @@ a {
     }
 
     &__list {
+        width: 100%;
         position: relative;
-        transition: transform 0.3s ease;
+        
     }
 }
 
@@ -328,8 +329,6 @@ a {
        & input {
         @include input;
        }
-
-
 }
 
 .search-icon {
@@ -351,8 +350,9 @@ a {
     gap: 36px;
     list-style: none;
     overflow-x: auto;
-    -ms-overflow-style: none; /* Internet Explorer и Edge */
-    scrollbar-width: none; /* Firefox */
+    transition: transform 0.3s ease;
+    // -ms-overflow-style: none; /* Internet Explorer и Edge */
+    // scrollbar-width: none; /* Firefox */
 
     @include respond-to(tablet) {
         overflow-x: auto;
@@ -376,9 +376,11 @@ a {
 .btn-navigation {
     border: none;
     background-color: transparent;
+    padding: 0;
     position: absolute;
-    right: -6px;
+    right: 0;
     top: 0;
+    cursor: pointer;
 
     @include respond-to(tablet) {
         display: none;

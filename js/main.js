@@ -14,17 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const menu = document.getElementById('menu');
-    const scrollRightButton = document.getElementById('btn-navigation');
 
-    let scrollAmount = 100; // Количество пикселей для скролла
+const scrollButton = document.getElementById('scrollButton');
+const scrollContent = document.querySelector('.menu');
 
-    // Скроллим меню влево
-    scrollRightButton.addEventListener('click', function() {
-        menu.scrollBy({
-            right: -scrollAmount,
-            behavior: 'smooth' // Плавный скролл
-        });
-    });
+let scrollAmount = 0; // Сумма скролла
+const scrollStep = 50; // Шаг скролла
+
+scrollButton.addEventListener('click', () => {
+    scrollAmount += scrollStep; // Увеличиваем сумму скролла
+    scrollContent.style.transform = `translateX(-${scrollAmount}px)`; // Применяем трансформацию
 });
