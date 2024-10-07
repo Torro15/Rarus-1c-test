@@ -133,7 +133,7 @@ a {
 .nav {
   min-height: 142px;
   padding-top: 8px;
-  margin-bottom: 26px;
+  margin-bottom: 35px;
   font-size: 16px;
   color: #333;
 }
@@ -166,7 +166,7 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 6px;
-  margin-bottom: 1px;
+  margin-bottom: 11px;
   gap: 25px;
   position: relative;
 }
@@ -212,6 +212,9 @@ a {
   width: 18px;
   height: 18px;
 }
+.top-left__address:hover {
+  color: #e11c4b;
+}
 .top-left__stores {
   width: auto;
   display: flex;
@@ -223,6 +226,9 @@ a {
   width: 18px;
   height: 18px;
 }
+.top-left__stores a:hover {
+  color: #e11c4b;
+}
 
 .top-right {
   display: flex;
@@ -230,6 +236,9 @@ a {
   align-items: center;
   gap: 6px;
   gap: 6px;
+}
+.top-right a:hover {
+  color: #e11c4b;
 }
 
 .personal-navigation {
@@ -262,6 +271,9 @@ a {
     width: 24px;
     height: 24px;
   }
+}
+.personal-navigation__item a:hover {
+  color: #e11c4b;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -338,6 +350,9 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 6px;
+  color: #e11c4b;
+}
+.menu-list li a:hover {
   color: #e11c4b;
 }
 
@@ -493,6 +508,12 @@ main {
   border-radius: 10px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .discount__box img {
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
 }
 
 .footer {

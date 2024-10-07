@@ -65,6 +65,7 @@ $bg-grey: #f4f4f4;
     }
 }
 
+
 html {
     box-sizing: border-box;
 }
@@ -201,7 +202,7 @@ a {
 .nav {
     min-height: 142px;
     padding-top: 8px;
-    margin-bottom: 26px;
+    margin-bottom: 35px;
     font-size: 16px;
     color: $text-color;
 
@@ -232,7 +233,7 @@ a {
 
     &__navigation {
         @include flex-item;
-        margin-bottom: 1px;
+        margin-bottom: 11px;
         gap: 25px;
         position: relative;
 
@@ -272,6 +273,9 @@ a {
             width: 18px;
             height: 18px;
         }
+        &:hover {
+            color: $accent;
+        }
     }
     &__stores {
         width: auto;
@@ -280,12 +284,19 @@ a {
             width: 18px;
             height: 18px;
         }
+
+        & a:hover {
+            color: $accent;
+        }
     }
 }
 
 .top-right {
     @include flex-item;
     gap: 6px;
+    & a:hover {
+        color: $accent;
+    }
 }
 
 .personal-navigation {
@@ -312,6 +323,10 @@ a {
                     width: 24px;
                     height: 24px;
                 }
+            }
+
+            &:hover {
+                color: $accent;
             }
         }
     }
@@ -364,6 +379,12 @@ a {
     &_active {
         @include flex-item;
         color: $accent;
+    }
+
+    & li {
+        & a:hover {
+            color: $accent;
+        }
     }
 }
 
@@ -494,6 +515,10 @@ main {
             height: 100%;
             border-radius: 10px;
             object-fit: cover;
+
+            @include respond-to(tablet) {
+                object-fit: contain;
+            }
         }
     }
 }
